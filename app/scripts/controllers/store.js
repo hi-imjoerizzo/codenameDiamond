@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name storefrontApp.controller:StoreCtrl
@@ -8,10 +6,7 @@
  * Controller of the storefrontApp
  */
 angular.module('storefrontApp')
-  .controller('StoreCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('StoreCtrl', function ($scope, categories) {
+    $scope.categories = categories;
+    console.log(categories);
   });

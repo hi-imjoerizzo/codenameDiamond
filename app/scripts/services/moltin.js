@@ -5,6 +5,5 @@ angular.module('storefrontApp.moltin', [])
     moltin.Authenticate(function(){
       deferred.resolve(moltin);
     });
-
     return deferred.promise;
   });
