@@ -23,25 +23,25 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        // controllerAs: 'main'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
+        // controllerAs: 'about'
       })
       .when('/store', {
         templateUrl: 'views/store.html',
         controller: 'StoreCtrl',
-        controllerAs: 'store',
+        // controllerAs: 'store',
         resolve: {
-          categories: function(MoltinAuth) {
+          categories: function($q, MoltinAuth) {
             var deferred = $q.defer();
             $q.when(MoltinAuth).then(function(moltin) {
               moltin.Category.List(null, function(categories) {
                 deferred.resolve(categories);
               });
-            })
+            });
             return deferred.promise;
           }
         }
@@ -49,17 +49,17 @@ angular
       .when('/category', {
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl',
-        controllerAs: 'category'
+        // controllerAs: 'category'
       })
       .when('/product', {
         templateUrl: 'views/product.html',
         controller: 'ProductCtrl',
-        controllerAs: 'product'
+        // controllerAs: 'product'
       })
       .when('/cart', {
         templateUrl: 'views/cart.html',
         controller: 'CartCtrl',
-        controllerAs: 'cart'
+        // controllerAs: 'cart'
       })
       .otherwise({
         redirectTo: '/'
